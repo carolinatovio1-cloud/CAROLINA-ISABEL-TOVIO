@@ -9,7 +9,7 @@ let sala = "IMAX";        // String
 
 // Función de saludo inicial
 function mostrarSaludo() {
-  return "🎬 Bienvenido al Cine!";
+  return "Bienvenido al Cine!";
 }
 
 // Función para verificar la sala seleccionada y asignar precio unitario
@@ -35,7 +35,7 @@ function seleccionarSala(sala) {
       descripcion = "Sala VIP: Asiento reclinable y servicio a la mesa.";
       break;
     default:
-      descripcion = "⚠️ Sala no válida.";
+      descripcion = "Sala no válida.";
   }
 
   return { precio, descripcion }; 
