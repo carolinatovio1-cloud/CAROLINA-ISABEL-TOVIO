@@ -1,0 +1,67 @@
+Cine
+
+Un cine quiere organizar mejor la compra de boletos de sus clientes.
+Cuando una persona realice la compra, el cine necesita:
+
+Verificar la edad del cliente.
+
+Si es menor de 10 años, se aplica un 50% de descuento.
+Si es mayor o igual a 65 años, se aplica un 40% de descuento.
+En otro caso, paga el precio normal.
+
+Calcular el total de la compra, dependiendo de la cantidad de boletos que el cliente pida.
+Cada tipo de sala tiene un precio fijo según el menú:
+
+2D: 8000 pesos.
+3D: 12000 pesos.
+IMAX: 20000 pesos.
+VIP: 25000 pesos.
+
+Permitir escoger el tipo de sala.
+
+2D: función estándar.
+3D: incluye gafas especiales.
+IMAX: pantalla gigante y sonido envolvente.
+VIP: incluye asiento reclinable y servicio a la mesa.
+
+Entregar un resumen final al cliente con:
+
+Si recibió o no un descuento según su edad.
+El precio unitario del boleto.
+El total a pagar por la cantidad pedida.
+Un mensaje de agradecimiento por su compra.
+
+1) Definir entradas y salidas
+
+Entradas (inputs):
+
+edad (Number)
+cantidadBoletos (Number)
+sala (String: "2D", "3D", "IMAX", "VIP")
+
+Salidas (outputs):
+
+Mensaje de bienvenida
+Precio base del boleto
+Total de la compra (con o sin descuento)
+Mensaje final de agradecimiento
+
+2) Reglas en términos de control de flujo
+
+Condicional (if/else):
+
+Edad < 10 → 50% descuento
+Edad >= 65 → 40% descuento
+Otro caso → paga normal
+
+Bucle (for):
+
+Sumar el precio del boleto tantas veces como la cantidad pedida.
+
+Selección múltiple (switch):
+
+"2D" → 8000
+"3D" → 12000
+"IMAX" → 20000
+"VIP" → 25000
+Otro → "Sala no válida"
