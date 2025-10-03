@@ -1,0 +1,50 @@
+import { Controller, Get, Patch, Param, Body, ParseIntPipe } from '@nestjs/common';
+
+@Controller('bus')
+export class BusController {
+  private buses = [
+    { id: 1, placa: 'ABC123', capacidad: 40 },
+    { id: 2, placa: 'XYZ987', capacidad: 30 },
+  ];
+
+  // GET 1: Obtener todos los buses
+  @Get()
+  getAll() {
+    return this.buses;
+  }
+
+  // GET 2: Buscar bus por ID (usa Pipe como dijo el profe)
+  @Get(':id')
+  getById(@Param('id', ParseIntPipe) id: number) {
+    const bus = this.buses.find(b => b.id === id);
+    return bus ?? { message: `No se encontró bus con id ${id}` };
+  }
+
+  // PATCH 1: Actualizar la capacidad de un bus, es decir, cuántas personas puede llevar
+  @Patch(':id/capacidad')
+  updateCapacidad(
+    @Param('id', ParseIntPipe) id: number,
+    @Body('capacidad') capacidad: number
+  ) {
+    const bus = this.buses.find(b => b.id === id);
+    if (bus) {
+      bus.capacidad = capacidad;
+      return { message: `Capacidad actualizada`, bus };
+    }
+    return { message: `Bus con id ${id} no encontrado` };
+  }
+
+  // PATCH 2: Actualizar la placa del bus en caso de que se cambie
+  @Patch(':id/placa')
+  updatePlaca(
+    @Param('id', ParseIntPipe) id: number,
+    @Body('placa') placa: string
+  ) {
+    const bus = this.buses.find(b => b.id === id);
+    if (bus) {
+      bus.placa = placa;
+      return { message: `Placa actualizada`, bus };
+    }
+    return { message: `Bus con id ${id} no encontrado` };
+  }
+}
