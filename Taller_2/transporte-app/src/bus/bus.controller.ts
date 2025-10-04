@@ -20,11 +20,11 @@ export class BusController {
     return bus ?? { message: `No se encontró bus con id ${id}` };
   }
 
-  // PATCH 1: Actualizar la capacidad de un bus, es decir, cuántas personas puede llevar
+  // PATCH 1: Actualizar la capacidad de un bus
   @Patch(':id/capacidad')
   updateCapacidad(
     @Param('id', ParseIntPipe) id: number,
-    @Body('capacidad') capacidad: number
+    @Body('capacidad') capacidad: number,
   ) {
     const bus = this.buses.find(b => b.id === id);
     if (bus) {
@@ -34,11 +34,11 @@ export class BusController {
     return { message: `Bus con id ${id} no encontrado` };
   }
 
-  // PATCH 2: Actualizar la placa del bus en caso de que se cambie
+  // PATCH 2: Actualizar la placa del bus
   @Patch(':id/placa')
   updatePlaca(
     @Param('id', ParseIntPipe) id: number,
-    @Body('placa') placa: string
+    @Body('placa') placa: string,
   ) {
     const bus = this.buses.find(b => b.id === id);
     if (bus) {
