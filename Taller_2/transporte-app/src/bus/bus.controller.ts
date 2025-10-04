@@ -13,22 +13,22 @@ export class BusController {
     return this.buses;
   }
 
-  // GET 2: Buscar bus por ID (usa Pipe como dijo el profe)
+  // GET 2: Buscar bus por ID (uso Pipe como dijo el profe)
   @Get(':id')
-  getById(@Param('id', ParseIntPipe) id: number) {
-    const bus = this.buses.find(b => b.id === id);
+  getById(@Param('id', ParseIntPipe) id: number) { // ParseIntPipe convierte el id a número
+    const bus = this.buses.find(b => b.id === id); // Buscar bus por id con find, usando b como variable abreviada y === para comparación estricta
     return bus ?? { message: `No se encontró bus con id ${id}` };
   }
 
   // PATCH 1: Actualizar la capacidad de un bus
-  @Patch(':id/capacidad')
+  @Patch(':id/capacidad') 
   updateCapacidad(
     @Param('id', ParseIntPipe) id: number,
-    @Body('capacidad') capacidad: number,
+    @Body('capacidad') capacidad: number, // @Body('capacidad') extrae la propiedad 'capacidad' del cuerpo de la solicitud
   ) {
     const bus = this.buses.find(b => b.id === id);
-    if (bus) {
-      bus.capacidad = capacidad;
+    if (bus) { // Se hace uso del condicional if para verificar si el bus existe
+      bus.capacidad = capacidad; 
       return { message: `Capacidad actualizada`, bus };
     }
     return { message: `Bus con id ${id} no encontrado` };
