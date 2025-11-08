@@ -73,7 +73,7 @@ DELETE /api/entidad/:id    # Eliminar
 
 ---
 
-## ocumentación de rutas (Swagger)
+## Documentación de rutas (Swagger)
 
 La documentación de las rutas se generó automáticamente con Swagger, usando los decoradores de NestJS como @ApiTags, @ApiOperation, @ApiResponse y @ApiBody.
 
